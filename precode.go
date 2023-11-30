@@ -42,11 +42,32 @@ var tasks = map[string]Task{
 // Ниже напишите обработчики для каждого эндпоинта
 // ...
 
+func addTask(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func getTask(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func removeTask(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func getAllTasks(w http.ResponseWriter, r *http.Request) {
+
+}
+
 func main() {
 	r := chi.NewRouter()
 
 	// здесь регистрируйте ваши обработчики
 	// ...
+
+	r.Post("/tasks", addTask)
+	r.Get("/tasks/{id}", getTask)
+	r.Delete("/tasks/{id}", removeTask)
+	r.Get("/tasks", getAllTasks)
 
 	if err := http.ListenAndServe(":8080", r); err != nil {
 		fmt.Printf("Ошибка при запуске сервера: %s", err.Error())
